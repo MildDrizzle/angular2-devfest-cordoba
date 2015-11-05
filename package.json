@@ -2,7 +2,6 @@
   "name": "angular2-devfest-cordoba",
   "version": "1.0.0",
   "description": "Workshop del #DevFest 2015 por GDG Cordoba",
-  "main": "index.js",
   "scripts": {
     "start": "http-server public",
     "dev": "gulp"

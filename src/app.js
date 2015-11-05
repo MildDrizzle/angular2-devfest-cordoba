@@ -21,7 +21,20 @@ import {
 })
 class Hello {
   constructor() {
-    this.message = "Hola GDG #DevFestCordoba!";
+    this.message = `Hola GDG #DevFestCordoba!`;
+  }
+}
+
+// <hello-name> Component --------------------------------------------------
+@Component({
+  selector: 'hello-name'
+})
+@View({
+  template: `<p>{{ message }}</p>`
+})
+class HelloName {
+  constructor(routeParams: RouteParams) {
+    this.message = `Hola ${routeParams.get('name')}!`;
   }
 }
 
@@ -31,13 +44,20 @@ class Hello {
 })
 @View({
   directives: [ROUTER_DIRECTIVES],
-  template: `<router-outlet></router-outlet>`
+  template: `
+    <ul>
+      <li><a [router-link]="['/Hello']">Home</a></li>
+      <li><a [router-link]="['/HelloName', { name: 'Carlos'}]">Home con Nombre</a></li>
+    </ul>
+    <router-outlet></router-outlet>
+  `
 })
 @RouteConfig([
-  { path: '/', component: Hello, as: 'Hello' }
+  { path: '/', component: Hello, as: 'Hello' },
+  { path: '/hola/:name', component: HelloName, as: 'HelloName'}
 ])
 class HelloApp {
-  
+
 }
 
 
