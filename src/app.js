@@ -3,7 +3,7 @@ import 'reflect-metadata';
 import 'babel-core/polyfill';
 
 import {
-  Component, View, Attribute,
+  Component, View,
   provide, bootstrap
 } from 'angular2/angular2';
 import {
@@ -11,6 +11,8 @@ import {
   LocationStrategy, HashLocationStrategy,
   ROUTER_PROVIDERS, ROUTER_DIRECTIVES, ROUTER_PRIMARY_COMPONENT
 } from 'angular2/router';
+
+import { Saludo } from './services';
 
 // -- <hello> Component --------------------------------------------------------
 @Component({
@@ -20,8 +22,9 @@ import {
   template: '<p>{{ message }}</p>'
 })
 class Hello {
-  constructor() {
-    this.message = `Hola GDG #DevFestCordoba!`;
+  constructor(saludo: Saludo) {
+    //this.message = `Hola GDG #DevFestCordoba!`;
+    this.message = saludo.texto('Hola', 'GDGCordoba');
   }
 }
 
@@ -30,17 +33,19 @@ class Hello {
   selector: 'hello-name'
 })
 @View({
-  template: `<p>{{ message }}</p>`
+  template: '<p>{{ message }}</p>'
 })
 class HelloName {
-  constructor(routeParams: RouteParams) {
-    this.message = `Hola ${routeParams.get('name')}!`;
+  constructor(saludo: Saludo, routeParams: RouteParams) {
+    //this.message = `Hola ${routeParams.get('name')}!`;
+    this.message = saludo.texto('Hello', routeParams.get('name'));
   }
 }
 
 // -- <hello-app> Component ----------------------------------------------------
 @Component({
-  selector: 'hello-app'
+  selector: 'hello-app',
+  viewProviders: [Saludo]
 })
 @View({
   directives: [ROUTER_DIRECTIVES],
