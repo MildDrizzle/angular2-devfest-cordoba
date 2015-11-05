@@ -1,0 +1,41 @@
+{
+  "name": "angular2-devfest-cordoba",
+  "version": "1.0.0",
+  "description": "Workshop del #DevFest 2015 por GDG Cordoba",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server public",
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosazaustre/angular2-devfest-cordoba.git"
+  },
+  "keywords": [
+    "angular2",
+    "babel",
+    "browserify"
+  ],
+  "author": "Carlos Azaustre <cazaustre@gmail.com> (https://carlosazaustre.es/blog)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carlosazaustre/angular2-devfest-cordoba/issues"
+  },
+  "homepage": "https://github.com/carlosazaustre/angular2-devfest-cordoba#readme",
+  "devDependencies": {
+    "babel-core": "^6.0.20",
+    "babel-plugin-angular2-annotations": "^2.0.1",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-util": "^3.0.7",
+    "http-server": "^0.8.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.6.0"
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.44"
+  }
+}
