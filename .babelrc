@@ -1,0 +1,6 @@
+{
+  "optional": ["es7.decorators"],
+  "plugins": [
+    "angular2-annotations"
+  ]
+}
