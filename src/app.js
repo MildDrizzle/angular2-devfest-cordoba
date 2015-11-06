@@ -12,35 +12,9 @@ import {
   ROUTER_PROVIDERS, ROUTER_DIRECTIVES, ROUTER_PRIMARY_COMPONENT
 } from 'angular2/router';
 
+import { Hello } from './hello.component';
+import { HelloName } from './helloName.component';
 import { Saludo } from './services';
-
-// -- <hello> Component --------------------------------------------------------
-@Component({
-  selector: 'hello'
-})
-@View({
-  template: '<p>{{ message }}</p>'
-})
-class Hello {
-  constructor(saludo: Saludo) {
-    //this.message = `Hola GDG #DevFestCordoba!`;
-    this.message = saludo.texto('Hola', 'GDGCordoba');
-  }
-}
-
-// <hello-name> Component --------------------------------------------------
-@Component({
-  selector: 'hello-name'
-})
-@View({
-  template: '<p>{{ message }}</p>'
-})
-class HelloName {
-  constructor(saludo: Saludo, routeParams: RouteParams) {
-    //this.message = `Hola ${routeParams.get('name')}!`;
-    this.message = saludo.texto('Hello', routeParams.get('name'));
-  }
-}
 
 // -- <hello-app> Component ----------------------------------------------------
 @Component({
